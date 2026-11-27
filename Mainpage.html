@@ -1,15 +1,144 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Crochet Shop</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commissions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaff;
+    --ink: #2a2140;
+    --muted: #6b6280;
+    --accent: #5b3fd1;
+    --soft: #ece8fb;
+    --line: #d9d3ef;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "DM Sans", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", system-ui, sans-serif; line-height: 1.15; }
+  header { padding: 64px 0 32px; }
+  h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); font-weight: 800; margin: 0 0 12px; }
+  header p { font-size: 1.15rem; color: var(--muted); margin: 0 0 24px; max-width: 52ch; }
+  .status {
+    display: inline-block; padding: 6px 14px; border-radius: 99px;
+    background: var(--soft); font-weight: 500; font-size: .95rem;
+  }
+  .status::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: #2fa46b; margin-right: 8px; }
+  section { padding: 32px 0; }
+  h2 { font-size: 1.7rem; margin: 0 0 16px; }
+  .prices { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .price { border: 1px solid var(--line); border-radius: 14px; padding: 20px; background: #fff; }
+  .price h3 { margin: 0 0 4px; font-size: 1.15rem; }
+  .price .cost { font-size: 1.6rem; font-weight: 800; font-family: "Bricolage Grotesque", sans-serif; color: var(--accent); }
+  .price p { margin: 8px 0 0; color: var(--muted); font-size: .95rem; }
+  ol, ul { padding-left: 1.2rem; }
+  li { margin-bottom: 8px; }
+  form { display: grid; gap: 16px; }
+  label { font-weight: 500; display: grid; gap: 6px; }
+  input, select, textarea {
+    font: inherit; padding: 12px; border: 1px solid var(--line);
+    border-radius: 10px; background: #fff; color: var(--ink); width: 100%;
+  }
+  textarea { min-height: 130px; resize: vertical; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  button {
+    font: inherit; font-weight: 500; padding: 14px 24px; border: 0; border-radius: 10px;
+    background: var(--accent); color: #fff; cursor: pointer; justify-self: start;
+  }
+  button:hover { background: #4a30b8; }
+  footer { padding: 32px 0 64px; color: var(--muted); font-size: .9rem; }
+</style>
 </head>
-
 <body>
-    <h1>Welcome to My Crochet Shop!</h1>
-    <p>We offer a wide variety of handmade crochet items!</p>
+<div class="wrap">
+
+  <header>
+    <h1>Commissions</h1>
+    <p>Want something made just for you? Take a look at what I offer, then send me a request below.</p>
+    <span class="status">Commissions are open</span>
+    <!-- Change the text above to "Commissions are closed" when you're full -->
+  </header>
+
+  <section>
+    <h2>What I offer</h2>
+    <div class="prices">
+      <div class="price">
+        <h3>Small</h3>
+        <div class="cost">$25</div>
+        <p>Simple piece, one subject. Replace this with your own description.</p>
+      </div>
+      <div class="price">
+        <h3>Medium</h3>
+        <div class="cost">$50</div>
+        <p>More detail or a bigger size. Replace this with your own description.</p>
+      </div>
+      <div class="price">
+        <h3>Large</h3>
+        <div class="cost">$100</div>
+        <p>Fully custom, lots of detail. Replace this with your own description.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <ol>
+      <li>Fill out the request form below.</li>
+      <li>I'll reply within a few days to confirm details and price.</li>
+      <li>Once you pay a deposit, I start working.</li>
+      <li>I share progress along the way, then send the finished piece.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Good to know</h2>
+    <ul>
+      <li>A 50% deposit is due before I begin.</li>
+      <li>Turnaround is about 2 to 4 weeks.</li>
+      <li>Changes are welcome early on. Big changes later may cost extra.</li>
+      <li>Please don't resell or claim my work as your own.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Request a commission</h2>
+    <!-- Replace the action with your form service link (Formspree, Netlify Forms, etc.)
+         or use action="mailto:you@example.com" method="post" enctype="text/plain" -->
+    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label>Your name
+        <input type="text" name="name" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" required>
+      </label>
+      <label>Size
+        <select name="size">
+          <option>Small</option>
+          <option>Medium</option>
+          <option>Large</option>
+          <option>Not sure yet</option>
+        </select>
+      </label>
+      <label>What would you like?
+        <textarea name="details" placeholder="Describe your idea, colors, size, and any reference links." required></textarea>
+      </label>
+      <label>Deadline (if any)
+        <input type="text" name="deadline">
+      </label>
+      <button type="submit">Send request</button>
+    </form>
+  </section>
+
+  <footer>&copy; Your Name</footer>
+</div>
 </body>
 </html>
